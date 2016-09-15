@@ -1,0 +1,8 @@
+drop table enrolls;
+drop table takes;
+drop table conducted_in;
+drop table classroom;
+drop table exam;
+drop table student;
+drop table section;
+drop table course;

@@ -1,0 +1,63 @@
+
+CREATE TABLE COURSE
+(CourseNo varchar(10) NOT NULL,
+ Course_Name VARCHAR(20) NOT NULL,
+ DEPARTMENT VARCHAR(20), 
+ PRIMARY KEY  (CourseNo));
+
+CREATE TABLE STUDENT
+(SSN CHAR(9) NOT NULL,
+ First_Name VARCHAR(20) NOT NULL,
+ Last_Name  VARCHAR(20) NOT NULL,
+ Street VARCHAR(20), 
+ City   VARCHAR(20),
+ Zip      CHAR (10),
+ PRIMARY KEY (SSN));
+
+CREATE TABLE CLASSROOM
+(RoomNo INTEGER NOT NULL,
+ Building VARCHAR(20) NOT NULL,
+ Capacity INTEGER, 
+ PRIMARY KEY (RoomNo,Building));
+
+CREATE TABLE SECTION
+(CourseNo varchar(10) NOT NULL,
+ SectionNo INTEGER NOT NULL, 
+ PRIMARY KEY (CourseNo,SectionNo),  
+ FOREIGN KEY (CourseNo) REFERENCES COURSE (CourseNo));
+
+CREATE TABLE ENROLLS
+(SSN CHAR(9) NOT NULL,
+ CourseNo varchar(10) NOT NULL,
+ SectionNo INTEGER NOT NULL,
+ PRIMARY KEY (SSN,CourseNo,SectionNo), 
+ FOREIGN KEY (SSN)       REFERENCES STUDENT (SSN), 
+ FOREIGN KEY (SectionNo,CourseNo) REFERENCES SECTION (SectionNo,CourseNo));
+
+CREATE TABLE EXAM
+(CourseNo varchar(10) NOT NULL,
+ SectionNo INTEGER NOT NULL,
+ ExamNo INTEGER NOT NULL,
+ PRIMARY KEY (CourseNo,SectionNo,ExamNo), 
+ FOREIGN KEY (SectionNo,CourseNo) REFERENCES SECTION (SectionNo,CourseNo));
+
+CREATE TABLE TAKES
+(SSN CHAR(9) NOT NULL,
+ CourseNo varchar(10) NOT NULL,
+ SectionNo INTEGER NOT NULL,
+ ExamNo INTEGER NOT NULL,
+ Result CHAR(1),
+ PRIMARY KEY (SSN,CourseNo,SectionNo,ExamNo),
+ FOREIGN KEY (SSN)       REFERENCES STUDENT (SSN), 
+ FOREIGN KEY (SectionNo,CourseNo,ExamNo) REFERENCES EXAM (SectionNo,CourseNo,ExamNo));
+
+
+CREATE TABLE CONDUCTED_IN
+(RoomNo INTEGER NOT NULL,
+ Building VARCHAR(20) NOT NULL,
+ CourseNo varchar(10) NOT NULL,
+ SectionNo INTEGER NOT NULL,
+ ExamNo INTEGER NOT NULL,
+ PRIMARY KEY (RoomNo,Building,CourseNo,SectionNo,ExamNo),
+ FOREIGN KEY (SectionNo,CourseNo,ExamNo) REFERENCES EXAM (SectionNo,CourseNo,ExamNo),
+ FOREIGN KEY (RoomNo,Building) REFERENCES CLASSROOM (RoomNo,Building));

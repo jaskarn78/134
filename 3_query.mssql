@@ -1,0 +1,33 @@
+select distinct student.ssn,student.first_name,student.last_name from student,enrolls,course,section where course.COURSE_NAME='Comp_Architecture' and student.ssn=enrolls.ssn and enrolls.courseno=section.courseno and section.courseno=course.courseno;
+
+
+
+select student.ssn,student.first_name,student.last_name,section.sectionno from student,enrolls,course,section where course.COURSE_NAME='VLSI' and student.ssn=enrolls.ssn and enrolls.courseno=section.courseno and section.courseno=course.courseno;
+
+
+
+
+select course.courseno, course.course_name from course where( select count(*) from student,section,enrolls where enrolls.ssn=student.ssn and course.courseno=section.courseno and section.courseno=enrolls.courseno and section.sectionno=enrolls.sectionno)>=2;
+
+
+
+
+select s.ssn,s.first_name,s.last_name from student s where (select count(*) from takes t where t.result='A' and s.ssn=t.ssn)>2;
+
+
+
+
+select c.examno,c.courseno,c.sectionno,r.roomno,r.building,r.capacity from conducted_in c, classroom r where c.building=r.building and r.building='Mendoccino_Hall';
+
+
+
+
+select distinct s.ssn,s.first_name,s.last_name from student s,enrolls e,course c, section sec where s.ssn=e.ssn and e.courseno=sec.courseno and c.courseno='C11' and c.courseno=sec.courseno intersect select distinct s.ssn,s.first_name,s.last_name from student s,enrolls e,course c, section sec where s.ssn=e.ssn and e.courseno=sec.courseno and c.courseno='C21' and c.courseno=sec.courseno;
+
+
+
+
+
+select course.course_name, count(section.sectionno) as NUMBER_OF_SECTION from course,section where section.courseno=course.courseno group by course.course_name having count(section.sectionno)>2;
+
+

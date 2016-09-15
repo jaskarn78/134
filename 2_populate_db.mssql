@@ -1,0 +1,182 @@
+1 Student Table: 
+
+
+insert into student values(999112222,'John','Smith','12th street','Houston',92312);
+
+insert into student values(888112311,'Ahmad','Patel','Howe Ave','San Francisco',93312);
+
+insert into student values(222145667,'Jennifer','Walace','Arden Way','San Jose',77187);
+
+insert into student values(998289901,'Sriniwas','Basani','Uni Ave','Sacramento',95825);
+
+
+
+2 Course Table: 
+
+insert into course values('C11','Database management', 'Computer Science');
+
+insert into course values('C21','Comp_Architecture', 'Computer Science');
+
+insert into course values('E110','VLSI', 'Electrical Engg');
+
+insert into course values('E214','Analog Circuits', 'Electrical Engg');
+
+
+
+3 Classroom Table:
+
+insert into classroom values(8,'RVR',50);
+
+insert into classroom values(210,'RVR',30);
+
+insert into classroom values(112,'Lassan Hall',25);
+
+insert into classroom values(5,'Mendoccino_Hall',45);
+
+
+
+4 Section Table:
+
+insert into section values('C11',1);
+
+insert into section values('C11',3);
+
+insert into section values('C21',1);
+
+insert into section values('C21',2);
+
+insert into section values('C21',3);
+
+insert into section values('E110',1);
+
+insert into section values('E214',1);
+
+insert into section values('E214',2);
+
+insert into section values('E214',3);
+
+
+
+5 Enrolls Table:
+
+insert into enrolls values(888112311,'E214',1);
+
+insert into enrolls values(888112311,'E110',1);
+
+insert into enrolls values(222145667,'C11',1);
+
+insert into enrolls values(998289901,'C11',1);
+
+insert into enrolls values(998289901,'E214',1);
+
+insert into enrolls values(998289901,'C11',3);
+
+insert into enrolls values(999112222,'C11',1);
+
+insert into enrolls values(999112222,'C21',3);
+
+insert into enrolls values(999112222,'C21',2);
+
+
+
+6 Exam Table:
+
+insert into exam values('C11',1,1);
+
+insert into exam values('C11',1,2);
+
+insert into exam values('C11',3,1);
+
+insert into exam values('C11',3,2);
+
+insert into exam values('C11',3,3);
+
+insert into exam values('C21',1,1);
+
+insert into exam values('C21',2,1);
+
+insert into exam values('C21',3,1);
+
+insert into exam values('E110',1,1);
+
+insert into exam values('E110',1,2);
+
+insert into exam values('E214',1,1);
+
+insert into exam values('E214',1,2);
+
+insert into exam values('E214',2,1);
+
+insert into exam values('E214',3,1);
+
+insert into exam values('E214',3,2);
+
+
+7 Takes Table:
+
+insert into takes values(222145667,'C11',1,1,'A');
+
+insert into takes values(222145667,'C11',1,2,'B');
+
+insert into takes values(888112311,'E214',1,1,'A');
+
+insert into takes values(888112311,'E214',1,2,'B');
+
+insert into takes values(888112311,'E110',1,1,'C');
+
+insert into takes values(888112311,'E110',1,2,'B');
+
+insert into takes values(998289901,'E110',1,1,'A');
+
+insert into takes values(998289901,'E110',1,2,'A');
+
+insert into takes values(998289901,'E214',1,1,'A');
+
+insert into takes values(998289901,'E214',1,2,'A');
+
+insert into takes values(998289901,'C11',3,1,'A');
+
+insert into takes values(998289901,'C11',3,2,'A');
+
+insert into takes values(998289901,'C11',3,3,'A');
+
+insert into takes values(999112222,'C11',1,1,'C');
+
+insert into takes values(999112222,'C11',1,2,'C');
+
+insert into takes values(999112222,'C21',3,1,'F');
+
+insert into takes values(999112222,'C21',2,1,'B');
+
+
+8 Conducted_in Table
+
+insert into conducted_in values(8,'RVR','C11',1,1);
+
+insert into conducted_in values(8,'RVR','C11',1,2);
+
+insert into conducted_in values(8,'RVR','C11',3,1);
+
+insert into conducted_in values(8,'RVR','C11',3,2);
+
+insert into conducted_in values(8,'RVR','C11',3,3);
+
+insert into conducted_in values(112,'Lassan Hall','C21',1,1);
+
+insert into conducted_in values(112,'Lassan Hall','C21',2,1);
+
+insert into conducted_in values(112,'Lassan Hall','C21',3,1);
+
+insert into conducted_in values(5,'Mendoccino_Hall','E110',1,1);
+
+insert into conducted_in values(5,'Mendoccino_Hall','E110',1,2);
+
+insert into conducted_in values(210,'RVR','E214',1,1);
+
+insert into conducted_in values(210,'RVR','E214',1,2);
+
+insert into conducted_in values(210,'RVR','E214',2,1);
+
+insert into conducted_in values(210,'RVR','E214',3,1);
+
+insert into conducted_in values(210,'RVR','E214',3,2);
